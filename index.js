@@ -24,5 +24,9 @@ module.exports.createClient = module.exports.connect = function(redis_url) {
     redis.send_anyways = false;
   });
 
+  redis.on('error', function(err) {
+    console.log(err);
+  });
+
   return(redis);
 }
